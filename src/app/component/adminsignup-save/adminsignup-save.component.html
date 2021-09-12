@@ -1,0 +1,81 @@
+<div class="container h-100 ">
+  <div class="row align-items-center h-100">
+    <div class="col-6 mx-auto">
+      <div class="ibox">
+        <div class="ibox-head">
+          <div class="ibox-title bg-primary text-center" >Admin Sign Up</div>
+        </div>
+        <div class="card-body">
+          <div class="ibox-body">
+
+            <form (ngSubmit)="onSubmit()" [formGroup]="signUpForm">
+
+              <div class="form-group">
+                <label for="adminName">Admin Name</label>
+                <input [ngClass]="{ 'is-invalid': submitted && f.adminName.errors }" class="form-control"
+                       formControlName="adminName" id="adminName"
+                       type="text"/>
+                <div *ngIf="submitted && f.adminName.errors" class="invalid-feedback">
+                  <div *ngIf="f.adminName.errors.required">Admin Name is required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="adminEmail">Admin Email</label>
+                <input [ngClass]="{ 'is-invalid': submitted && f.adminEmail.errors }" class="form-control"
+                       formControlName="adminEmail" id="adminEmail" type="text"/>
+                <div *ngIf="submitted && f.adminEmail.errors" class="invalid-feedback">
+                  <div *ngIf="f.adminEmail.errors.required">Admin Email is required</div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input [ngClass]="{ 'is-invalid': submitted && f.password.errors }" class="form-control"
+                       formControlName="password" id="password" type="password"/>
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Admin Password is required</div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="adminPhone">Admin Phone</label>
+                <input [ngClass]="{ 'is-invalid': submitted && f.adminPhone.errors }" class="form-control"
+                       formControlName="adminPhone" id="adminPhone"
+                       type="text"/>
+                <div *ngIf="submitted && f.adminPhone.errors" class="invalid-feedback">
+                  <div *ngIf="f.adminPhone.errors.required">Admin Phone must more then 11 digits</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <input [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" class="form-control"
+                       formControlName="gender" id="gender"
+                       type="text"/>
+                <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                  <div *ngIf="f.gender.errors.required">Admin Gender  </div>
+                </div>
+              </div>
+
+
+              <div *ngIf="submitted && serverError!=''" class="form-group mb-4 row">
+                <label class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                  <div class="text-danger">{{ serverError }}</div>
+                </div>
+              </div>
+              <div class="form-group text-right">
+                <button class="btn btn-primary">Create Admin</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

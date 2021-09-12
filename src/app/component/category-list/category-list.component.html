@@ -1,0 +1,45 @@
+<div class="col-md-9 ibox">
+  <div class="ibox-head">
+    <div class="ibox-title alert-success text-center">Category List</div>
+    <div class="input-group col-md-4">
+      <span class="input-group-prepend">
+        <div class="input-group-text bg-transparent border-right-0"><i class="fa fa-search"></i></div>
+      </span>
+      <input type="text" [(ngModel)]="searchText" autocomplete="on" placeholder="Name / Category."
+             class="form-control"/>
+    </div>
+  </div>
+  <div class="ibox-body">
+    <table class="table">
+
+      <thead>
+      <tr>
+        <th scope="col">Category Name</th>
+        <th scope="col">Options</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let categoryInfo of getListCategory">
+
+        <td style="width: 30%">{{ categoryInfo.categoryName }}</td>
+
+        <td>
+
+          <button (click)="onClickCategoryEdit(categoryInfo.id)"> Edit </button>
+
+
+          <button (click)="onClickCategoryDelete(categoryInfo.id)" >Delete</button>
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ibox-footer">
+    <div class="text-center">
+      <!-- <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>-->
+    </div>
+
+  </div>
+</div>
